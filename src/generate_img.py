@@ -24,7 +24,7 @@ def getQuery(query, page):
         data = resp.json()
          # Procesar los datos según sea necesario
         res = "<br><img src='{src[medium]}' alt='Foto de {photographer} en Pexels'>"
-        print(data)
+        
         return res.format(**data["photos"][0])
     else:
         # La petición no fue exitosa

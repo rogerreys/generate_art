@@ -1,0 +1,17 @@
+[
+    {
+        "category":"Electronica",
+        "topic":"modulos arduino",
+        "img":"arduino electronica"
+    },
+    {
+        "category":"telecomunicaciones",
+        "topic":"protocolo FTP",
+        "img":"protocolo FTP telecomunicaciones"
+    },
+    {
+        "category":"telecomunicaciones",
+        "topic":"Redes LAN",
+        "img": "telecomunicaciones redes lan"
+    }
+]

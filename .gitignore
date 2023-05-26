@@ -1,2 +1,5 @@
 assts/keys/
+assts/article
 src/__pycache__/
+test.py
+assts/json/datos_BU.json
