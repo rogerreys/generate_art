@@ -15,7 +15,7 @@ def key():
 
 def generate_text(prompt):
     key()
-    print("prompt:",prompt)
+    # print("prompt:",prompt)
     report = []
     model_engine = "text-davinci-003" # Puede cambiar el modelo aquí
     prompt = (prompt[:2048]) # Asegura que la solicitud sea menor a 2048 caracteres

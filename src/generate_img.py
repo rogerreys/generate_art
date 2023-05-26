@@ -23,17 +23,19 @@ def getQuery(page_img, query, page, perpage):
         "page": page,
         "per_page": perpage
     }
-        
-    resp = req.get(url, headers=headers, params=params)
-    if resp.status_code==200:
-        data = resp.json()
-         # Procesar los datos según sea necesario
-        res = img_page[val]["img"]
-        
-        return res.format(**data[img_page[val]["data"]][0])
-    else:
-        # La petición no fue exitosa
-        print("Error:", resp.status_code)
+    try:
+        resp = req.get(url, headers=headers, params=params)
+        if resp.status_code==200:
+            data = resp.json()
+            # Procesar los datos según sea necesario
+            res = img_page[val]["img"]
+            
+            return res.format(**data[img_page[val]["data"]][0])
+        else:
+            # La petición no fue exitosa
+            print("Error:", resp.status_code)
+    except NameError:
+        print(NameError)
     
 def listPageImg(page_img):
     img_page = [

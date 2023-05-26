@@ -33,28 +33,35 @@ def main_app():
         # Content Intro
         res1 = gt(msg_intro + msg)
         file_html.write(res1)
+        print("\t# Content Intro")
         file_html.write("\n"+ getQuery("unsplash", dic["img"],1,1) + "\n")
         sleep(2)
-        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,3) + "\n")
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,5) + "\n")
+        
         # Content main
         msg_content = msg_content.format(**dic)
         res2 = gt(msg_content + msg)
         file_html.write("\n"+ res2)
-        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,5) + "\n")
+        print("\t# Content main")
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,8) + "\n")
         sleep(2)
-        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,7) + "\n")
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,12) + "\n")
+        
         # Content technic
         res3 = gt(msg_technic + msg)
         file_html.write("\n"+ res3)
+        print("\t# Content technic")
         file_html.write("\n"+ getQuery("unsplash", dic["img"],2,1) + "\n")
         sleep(2)
         file_html.write("\n"+ getQuery("unsplash", dic["img"],2,3) + "\n")
+        
         # Content features
         res4 = gt(msg_features + msg)
         file_html.write("\n"+ res4)
-        file_html.write("\n"+ getQuery("unsplash", dic["img"],2,5) + "\n")
+        print("\t# Content features")
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,10) + "\n")
         sleep(2)
-        file_html.write("\n"+ getQuery("unsplash", dic["img"],2,7) + "\n")
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,15) + "\n")
 
         file_html.close()
         print("\n","/"*90,"\n",f"Termina el articulo {file_name.format(**dic)}","\n","/"*90,"\n")
