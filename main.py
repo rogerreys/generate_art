@@ -14,7 +14,8 @@ def main_app():
     msg_generic = " de {category} sobre el temas de {topic}, para un sitio web con formato html omitir el <head> y solo escribir en el <body>"
     msg_intro = "Escribe una introduccion profesional corta,"
     msg_content = "Eres un profesional en {category} escribe un articulo interesante para sitio web" + msg_generic
-    msg_tecnit = "Describe funcionalidades y caractisticas interesantes" + msg_generic
+    msg_technic = "Describe definiciones tecnica para un articulo" + msg_generic
+    msg_features = "Describe funcionalidades y caractisticas interesantes para un articulo" + msg_generic
     file_name = "{category}_{topic}.html"
 
     # Create file
@@ -23,30 +24,40 @@ def main_app():
     paper = load_json(path_json)
 
     for dic in paper:
-        res1, res2, res3= "","",""
+        res1, res2, res3, res4= "","","",""
 
         file_html = open(path_files+"/"+file_name.format(**dic), "w", encoding="utf-8")
 
-        # Intro
+        # message generic
         msg = msg_generic.format(**dic)
         # Content Intro
         res1 = gt(msg_intro + msg)
         file_html.write(res1)
-        file_html.write("\n"+ getQuery(dic["img"],1) + "\n")
-        sleep(5)
-        
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,1) + "\n")
+        sleep(2)
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,3) + "\n")
+        # Content main
         msg_content = msg_content.format(**dic)
         res2 = gt(msg_content + msg)
         file_html.write("\n"+ res2)
-        file_html.write("\n"+ getQuery(dic["img"],3) + "\n")
-        sleep(5)
-
-        res3 = gt(msg_tecnit + msg)
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,5) + "\n")
+        sleep(2)
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],1,7) + "\n")
+        # Content technic
+        res3 = gt(msg_technic + msg)
         file_html.write("\n"+ res3)
-        file_html.write("\n"+ getQuery(dic["img"],4) + "\n")
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],2,1) + "\n")
+        sleep(2)
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],2,3) + "\n")
+        # Content features
+        res4 = gt(msg_features + msg)
+        file_html.write("\n"+ res4)
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],2,5) + "\n")
+        sleep(2)
+        file_html.write("\n"+ getQuery("unsplash", dic["img"],2,7) + "\n")
 
         file_html.close()
-        print("/"*20,"\n",f"Termina el articulo {file_name.format(**dic)}","/"*20,"\n")
+        print("\n","/"*90,"\n",f"Termina el articulo {file_name.format(**dic)}","\n","/"*90,"\n")
 
 # Create file
 def manage_file(path_art):
